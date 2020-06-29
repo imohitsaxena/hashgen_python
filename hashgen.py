@@ -34,6 +34,8 @@ elif sha_type == '23':
 	hash_algo = "sha3_384"
 elif sha_type == '24':
 	hash_algo = "sha3_512"
+elif sha_type == '25':
+	hash_algo = "mohit"
 else:
 	print("Invalid Input. Exiting.")
 	exit()
@@ -60,6 +62,8 @@ f_out.write('File : ' + hash_algo + '\n')
 
 for f in os.listdir():
 	if os.path.isfile(f):
+		if f == out_file_name:
+			continue
 		a_file = open(f, 'rb')
 		content = a_file.read()
 		hash_val = hashlib.new(hash_algo,content)
